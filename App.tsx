@@ -3,10 +3,11 @@ import { StyleSheet, Text, View, Image, SafeAreaView} from 'react-native';
 
 export default function App() {
   const age = 18;
-  const yearsexperience = 5;
+  const yearsexperience = 2;
   let feedback = '';
   
   if (age >= 18) 
+  /*the  condition was true*/
     if (yearsexperience >= 3)
     {
       feedback= 'you are a qualified, safe driver'
@@ -19,6 +20,30 @@ export default function App() {
     {
       feedback= 'You are not allowed to drive yet'
     }
+
+    //Adding a Switch Statement 
+    let drivingRank = '';
+    switch (yearsexperience)
+     {
+      case 0:
+        drivingRank = 'Newbie driver';
+        break;
+       case 1:
+        drivingRank = 'Rookie with 1 year of driving experience';
+        break;
+        case 2:
+          drivingRank = 'Intermediate driver with 2 year of driving experience';
+          break; 
+          case 3:
+            case 4: 
+            drivingRank = 'Experienced driver';
+            break; 
+            default:
+              drivingRank = 'Veteran driver with many years of experience'
+
+    }
+
+
   return (
     <SafeAreaView style={styles.container}>
     <View style= {styles.content}>
@@ -37,6 +62,10 @@ export default function App() {
 
           <Text style={[styles.response, {color: 'green', fontWeight: 'bold'}] }>
       {feedback} {/*This is my message to be displayed to the user */}
+      
+      </Text>
+      <Text style={[styles.response, {color: 'pink', fontWeight: 'bold', textAlign:'center', marginBottom:35}] }>
+      {drivingRank} {/*This is the driving rank text component */}
       
       </Text>
     </View>
